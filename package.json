@@ -1,0 +1,90 @@
+{
+  "name": "dwm",
+  "displayName": "DWM: DoubleWord Monitor",
+  "description": "Monitor recent batch inference jobs from doubleword.ai",
+  "version": "0.0.1",
+  "publisher": "doubleword",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:dwm.batchView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "dwm-sidebar",
+          "title": "DWM: DoubleWord Monitor",
+          "icon": "$(server-process)"
+        }
+      ]
+    },
+    "views": {
+      "dwm-sidebar": [
+        {
+          "id": "dwm.batchView",
+          "name": "Batches",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "dwm.refresh",
+        "title": "Refresh Batches",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "dwm.setApiKey",
+        "title": "DWM: Set API Key"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "dwm.refresh",
+          "when": "view == dwm.batchView",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "DWM: DoubleWord Monitor",
+      "properties": {
+        "dwm.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API key for doubleword.ai (legacy — prefer 'DWM: Set API Key' command for secure storage). Falls back to DOUBLEWORD_API_KEY environment variable."
+        },
+        "dwm.refreshInterval": {
+          "type": "number",
+          "default": 30,
+          "description": "Auto-refresh interval in seconds."
+        },
+        "dwm.batchLimit": {
+          "type": "number",
+          "default": 20,
+          "description": "Number of recent batches to fetch (max 100)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^2.22.0"
+  }
+}

@@ -1,0 +1,6 @@
+.devcontainer/
+src/
+node_modules/
+tsconfig.json
+.git/
+.gitignore
