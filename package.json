@@ -3,7 +3,7 @@
   "displayName": "DWM: DoubleWord Monitor",
   "description": "Monitor recent batch inference jobs from doubleword.ai",
   "version": "0.0.1",
-  "publisher": "doubleword",
+  "publisher": "investigating-software",
   "license": "MIT",
   "icon": "media/icon.png",
   "engines": {
@@ -11,9 +11,6 @@
   },
   "categories": [
     "Other"
-  ],
-  "activationEvents": [
-    "onView:dwm.batchView"
   ],
   "main": "./out/extension.js",
   "contributes": {
