@@ -3,7 +3,7 @@
   "displayName": "DWM: DoubleWord Monitor",
   "description": "Monitor recent batch inference jobs from doubleword.ai",
   "version": "0.0.1",
-  "publisher": "investigating-software",
+  "publisher": "pete0234",
   "license": "MIT",
   "icon": "media/icon.png",
   "engines": {
